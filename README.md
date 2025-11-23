@@ -1,7 +1,5 @@
-Go Library Templat
-------------------
-
-Go library template.
+Go Library Template
+-------------------
 
 After new repo creation change README and search for <library_name> and change it to your library name and <library_owner> with your GitHub username
 
