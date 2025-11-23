@@ -43,9 +43,9 @@ jobs:
           version: '~> v2'
           args: release --snapshot --skip=publish --skip=snapcraft --skip=validate --clean --verbose
       - name: Tar binaries to preserve executable bit
-        run: 'tar -cvf <your_library>-binaries.tar --directory dist/ $(find dist/ -executable -type f -printf "%P\0" | xargs --null)'
+        run: 'tar -cvf library_name-binaries.tar --directory dist/ $(find dist/ -executable -type f -printf "%P\0" | xargs --null)'
       - name: Upload binaries as artifacts
         uses: actions/upload-artifact@v4
         with:
           name: Executables
-          path: <your_library>-binaries.tar
+          path: library_name-binaries.tar

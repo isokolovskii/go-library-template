@@ -48,7 +48,7 @@ jobs:
       - name: Generate artifact attestations
         uses: actions/attest-build-provenance@v3
         with:
-          subject-checksums: dist/<your_library>_checksums.txt
+          subject-checksums: dist/library_name_checksums.txt
 
       - name: Preserve artifacts permissions with tar
         run: tar -cvf dist.tar dist/

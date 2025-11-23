@@ -2,17 +2,17 @@ COMMIT_HASH = $(shell git rev-parse HEAD)
 
 .PHONY: build
 build:
-	go build -ldflags "-s -w" -o <your_library>
+	go build -ldflags "-s -w" -o library_name
 
 .PHONY: build-with-coverage
 build-with-coverage:
-	go build -cover -ldflags "-s -w" -o <your_library>
+	go build -cover -ldflags "-s -w" -o library_name
 
 install: build
 ifeq ($(shell go env GOOS),windows)
-	copy <your_library> $(shell go env GOPATH)\bin\<your_library>.exe
+	copy library_name $(shell go env GOPATH)\bin\library_name.exe
 else
-	cp <your_library> $$(go env GOPATH)/bin
+	cp library_name $$(go env GOPATH)/bin
 endif
 
 .PHONY: test
@@ -45,7 +45,7 @@ version:
 
 	@version=$$(git cliff --bumped-version 2>/dev/null); \
 	echo "Bumping to version $$version"; \
-	sed -i '' "s/go install github.com\/<library_owner>\/<your_library>@.*/go install github.com\/<library_owner>\/<your_library>@$$version/" README.md; \
+	sed -i '' "s/go install github.com\/library_owner\/library_name@.*/go install github.com\/library_owner\/library_name@$$version/" README.md; \
 	git cliff --bump -o CHANGELOG.md; \
 	git add internal/version/version.go README.md CHANGELOG.md; \
 	git commit -m "chore(release): $$version"; \

@@ -1,4 +1,4 @@
-module github.com/library_owner/your_library
+module github.com/library_owner/library_name
 
 go 1.25.1
 

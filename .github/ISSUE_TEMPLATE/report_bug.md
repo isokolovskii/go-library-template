@@ -11,9 +11,9 @@ labels: 'bug'
 
 <!-- Don't forget to enable verbose logs. -->
 
-### <your_library> version
+### library_name version
 
-<!-- `<your_library> version -f` -->
+<!-- `library_name version -f` -->
 
 ### Possible solution
 

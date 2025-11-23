@@ -4,14 +4,14 @@
 header = "# Changelog\n\n"
 body = """
 {% if version %}\
-    ## [{{ version | trim_start_matches(pat="v") }}](https://github.com/<library_owner>/<your_library>/releases/tag/{{ version }}) ({{ timestamp | date(format="%Y-%m-%d") }})
+    ## [{{ version | trim_start_matches(pat="v") }}](https://github.com/library_owner/library_name/releases/tag/{{ version }}) ({{ timestamp | date(format="%Y-%m-%d") }})
 {% else %}\
     ## (unreleased)
 {% endif %}
 {% for group, commits in commits | group_by(attribute="group") %}
 ### {{ group }}
 {% for commit in commits %}\
-    - {% if commit.breaking %}[**breaking**] {% endif %}{{ commit.message }} by {% if commit.remote.username %}[@{{commit.remote.username}}](https://github.com/{{commit.remote.username}}) {% else %}{{ commit.author.name }}{% endif %} ([{{ commit.id | truncate(length=7, end="") }}](https://github.com/<library_owner>/<your_library>/commit/{{ commit.id }}))
+    - {% if commit.breaking %}[**breaking**] {% endif %}{{ commit.message }} by {% if commit.remote.username %}[@{{commit.remote.username}}](https://github.com/{{commit.remote.username}}) {% else %}{{ commit.author.name }}{% endif %} ([{{ commit.id | truncate(length=7, end="") }}](https://github.com/library_owner/library_name/commit/{{ commit.id }}))
 {% endfor %}\n
 {% endfor %}\n
 """
@@ -23,7 +23,7 @@ filter_unconventional = true
 require_conventional = false
 split_commits = false
 link_parsers = [
-    { pattern = "#(\\d+)", href = "https://github.com/<library_owner>/<your_library>/issues/$1"},
+    { pattern = "#(\\d+)", href = "https://github.com/library_owner/library_name/issues/$1"},
     { pattern = "RFC(\\d+)", text = "ietf-rfc$1", href = "https://datatracker.ietf.org/doc/html/rfc$1"},
 ]
 commit_parsers = [
@@ -53,5 +53,5 @@ breaking_always_bump_major = true
 initial_tag = "v1.0.0"
 
 [remote.github]
-owner = "<library_owner>"
-repo = "<your_library>"
+owner = "library_owner"
+repo = "library_name"

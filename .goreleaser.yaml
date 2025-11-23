@@ -1,6 +1,6 @@
 version: 2
 
-project_name: <your_library>
+project_name: library_name
 report_sizes: true
 
 before:
@@ -9,7 +9,7 @@ before:
     - go generate ./...
 
 builds:
-  - id: <your_library>
+  - id: library_name
     env:
       - CGO_ENABLED=0
     goos:
@@ -36,10 +36,10 @@ builds:
     ldflags:
       - -s -w
 archives:
-  - id: <your_library>
+  - id: library_name
     formats: [binary]
     ids:
-      - <your_library>
+      - library_name
     files:
       - none*
     name_template: >-
@@ -51,10 +51,10 @@ archives:
       {{- else if eq .Arch "386" }}i386
       {{- else }}{{ .Arch }}{{ end }}
 
-  - id: <your_library>-gz
+  - id: library_name-gz
     formats: [gz]
     ids:
-      - <your_library>
+      - library_name
     files:
     - none*
     name_template: >-
@@ -66,10 +66,10 @@ archives:
       {{- else if eq .Arch "386" }}i386
       {{- else }}{{ .Arch }}{{ end }}
 
-  - id: <your_library>-linux-aarch64
+  - id: library_name-linux-aarch64
     formats: [binary]
     ids:
-      - <your_library>-linux-aarch64
+      - library_name-linux-aarch64
     files:
       - none*
     name_template: >-
@@ -82,10 +82,10 @@ archives:
       {{- else if eq .Arch "arm64" }}aarch64
       {{- else }}{{ .Arch }}{{ end }}
 
-  - id: <your_library>-linux-aarch64-gz
+  - id: library_name-linux-aarch64-gz
     formats: [gz]
     ids:
-      - <your_library>-linux-aarch64
+      - library_name-linux-aarch64
     files:
       - none*
     name_template: >-
