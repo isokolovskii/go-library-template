@@ -1,0 +1,25 @@
+Go Library Templat
+------------------
+
+Go library template.
+
+After new repo creation change README and search for <library_name> and change it to your library name and <library_owner> with your GitHub username
+
+Installation
+------------
+
+With **Go** (>= 1.25):
+
+```bash
+go install github.com/<library_owner>/<your_library>@1.0.0
+```
+
+Usage
+-----
+
+TODO
+
+Authors and Contributors
+------------------------
+
+TODO
