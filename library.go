@@ -1,9 +1,9 @@
-package main
+package golibrarytemplate
 
 import (
 	"log"
 )
 
-func main() {
+func DummyFunc() {
 	log.Print("new library")
 }

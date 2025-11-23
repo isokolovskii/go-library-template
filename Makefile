@@ -1,20 +1,3 @@
-COMMIT_HASH = $(shell git rev-parse HEAD)
-
-.PHONY: build
-build:
-	go build -ldflags "-s -w" -o library_name
-
-.PHONY: build-with-coverage
-build-with-coverage:
-	go build -cover -ldflags "-s -w" -o library_name
-
-install: build
-ifeq ($(shell go env GOOS),windows)
-	copy library_name $(shell go env GOPATH)\bin\library_name.exe
-else
-	cp library_name $$(go env GOPATH)/bin
-endif
-
 .PHONY: test
 test:
 	go test -cpu 24 -race -count=1 -timeout=30s ./...
